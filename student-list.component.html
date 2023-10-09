@@ -1,0 +1,46 @@
+<h2> Student List </h2>
+<div class="col-md-12">
+<button class="btn btn-outline-secondary" type="button" (click)="getSecondaryStudents()">
+        Secondary Students</button>
+
+<button class="btn btn-outline-secondary" type="button" (click)="getNonSecondaryStudents()">
+        Primary Students </button>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Student Name</th>           
+            <th> StudentMarks</th>
+            <th> Student Qualification</th>
+            <th> Gender</th>
+            <th> Address</th>
+            <th> MobileNumber </th>
+            <th> School Name</th>
+            <th> Is Secondary Student</th>
+            <th colspan="55"> Actions </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let student of students" >
+            <td> {{ student.studentName }} </td>          
+            <td> {{ student.studentMarks }} </td>
+            <td> {{ student.studentQualification }} </td>
+            <td> {{ student.gender }} </td>
+            <td> {{ student.address }} </td>
+            <td> {{ student.mobileNumber }} </td>
+            <td> {{ student.schoolName }} </td>
+            <td> {{ student.isSecondaryStudent }} </td>
+            <td>
+               <button (click) = "updateStudent(student.rollNum)" class = "btn btn-outline-info"> Update</button>
+                <button (click) = "deleteStudent(student.rollNum)" class = "btn btn-outline-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "viewStudent(student.rollNum)" class = "btn btn-outline-info" style="margin-left: 10px"> View</button> 
+            </td>
+        </tr>
+        <tr *ngIf="students.length !== 0">
+          <button class="m-3 btn btn-sm btn-danger" (click)="removeAllStudents()">
+                Remove All
+              </button>
+        </tr>
+    </tbody>
+</table>
+</div>

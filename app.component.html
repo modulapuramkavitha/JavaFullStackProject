@@ -1,0 +1,22 @@
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <a *ngIf="userService.isUserLoggedIn()" routerLink="see-all-students" routerLinkActive="active" class="nav-link" >Student List</a>
+        <a *ngIf="userService.isUserLoggedIn()" routerLink="create-student" routerLinkActive="active" class="nav-link" >Add new student</a>
+        <button *ngIf="!userService.isUserLoggedIn()" routerLink="sign-in" class="btn btn-link nav-link">Login</button>       
+        <button *ngIf="userService.isUserLoggedIn()" routerLink="see-all-schools" class="btn btn-link nav-link">School List</button>
+        <button *ngIf="userService.isUserLoggedIn()" routerLink="create-school" class="btn btn-link nav-link">Add school</button>
+        <button *ngIf="userService.isUserLoggedIn()" (click)="logOut()"class="btn-btn-nav-link">LogOut</button>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1 class="text-center">{{title}}</h1> 
+
+<div class ="container">
+ 
+<router-outlet></router-outlet>
